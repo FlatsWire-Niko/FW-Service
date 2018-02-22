@@ -1,14 +1,7 @@
-before_script:
-  - apt-get update -qq && apt-get install -y -qq sqlite3 libsqlite3-dev nodejs
-  - ruby -v
-  - which ruby
-  - gem install bundler --no-ri --no-rdoc
-  - bundle install --jobs $(nproc)  "${FLAGS[@]}"
+image: docker:latest
+services:
+  - docker:dind
 
-rspec:
-  script:
-    - bundle exec rspec
-
-rubocop:
-  script:
-    - bundle exec rubocop
+variables:
+  DOCKER_DRIVER: overlay
+  # SPRING_PROFILES_ACTIVE: gitlab-ci
