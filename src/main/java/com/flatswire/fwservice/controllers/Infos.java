@@ -24,7 +24,7 @@ public class Infos {
 	 */
 	@GetMapping("/")
 	public String infos() {
-		return String.format("<h1><center>%s</center></h1>", LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
+		return String.format("<h1 style=\"color:blue\"><center>%s</center></h1>", LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
 	}
 
 }
