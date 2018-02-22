@@ -15,3 +15,9 @@ maven-build:
   artifacts:
     paths:
       - target/*.jar
+
+docker-build:
+  stage: package
+  script:
+  - docker build -t registry.gitlab.com/flatswire-niko/fw-service .
+  - docker push registry.gitlab.com/flatswire-niko/fw-service
